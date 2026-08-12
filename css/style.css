@@ -1,24 +1,1103 @@
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-:root{--bg:#080d19;--panel:#111a2d;--text:#fff;--muted:#94a3b8;--accent:#38bdf8;--border:rgba(255,255,255,.08);--hero:#080d19}
-body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:.3s}
-body.light-mode{--bg:#f1f5f9;--panel:#fff;--text:#0f172a;--muted:#64748b;--border:#e2e8f0;--hero:#f8fafc}
-section{padding:100px 8%}
-nav{position:fixed;top:0;left:0;width:100%;padding:15px 8%;display:flex;align-items:center;justify-content:space-between;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(15px);border-bottom:1px solid var(--border);z-index:999}
-.logo{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:bold;color:var(--accent);text-decoration:none}.logo img{width:45px;height:45px;object-fit:contain;border-radius:50%}
-nav ul{display:flex;gap:28px;list-style:none}nav ul a{color:var(--text);text-decoration:none;font-size:15px;transition:.3s}nav ul a:hover{color:var(--accent)}
-.nav-right{display:flex;align-items:center;gap:15px}.theme-toggle,.menu-toggle{width:45px;height:45px;border:1px solid var(--border);border-radius:50%;background:var(--panel);color:var(--text);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}.menu-toggle{display:none}
-.hero{min-height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden;background:radial-gradient(circle at 20% 20%,#1d4ed8,transparent 35%),radial-gradient(circle at 80% 80%,#7c3aed,transparent 35%),var(--hero)}
-body.light-mode .hero{background:radial-gradient(circle at 20% 20%,#93c5fd,transparent 35%),radial-gradient(circle at 80% 80%,#c4b5fd,transparent 35%),var(--hero)}
-.hero-content{max-width:900px;position:relative;animation:fadeUp 1.2s ease}.hero-logo{width:120px;height:120px;object-fit:contain;margin-bottom:25px;animation:logoFloat 4s infinite ease-in-out}.hero h1{font-size:70px;margin-bottom:20px;letter-spacing:2px}.hero h1 span,.section-title span{color:var(--accent)}.hero p{color:var(--muted);font-size:18px;line-height:1.8;margin-bottom:35px}.btn{display:inline-block;padding:14px 30px;background:var(--accent);color:#07111f;text-decoration:none;border-radius:50px;font-weight:bold;transition:.3s}.btn:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(56,189,248,.4)}
-.section-title{text-align:center;font-size:40px;margin-bottom:50px}.about{display:grid;grid-template-columns:repeat(2,1fr);gap:25px}.about-box,.stat-card,.org-card,.work-card,.work-item,.video-item{background:var(--panel);border:1px solid var(--border);border-radius:20px;transition:.4s}.about-box{padding:35px}.about-box:hover,.stat-card:hover,.org-card:hover,.work-card:hover,.work-item:hover,.video-item:hover{transform:translateY(-10px);box-shadow:0 20px 45px rgba(0,0,0,.25)}.about-box h3{color:var(--accent);margin-bottom:15px;font-size:23px}.about-box p,.work-info p{color:var(--muted);line-height:1.8}
-.stats{margin-top:30px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.stat-card{padding:30px;text-align:center}.stat-card h2{color:var(--accent);font-size:38px}.stat-card p{color:var(--muted);margin-top:10px}
-.works,.work-gallery,.organization{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.work-link{text-decoration:none;color:inherit;display:block}.work-card{overflow:hidden}.work-card img,.work-item img,.video-item img{width:100%;height:250px;object-fit:cover;display:block}.work-info{padding:22px}.work-info h3{margin-bottom:10px}.tag{display:inline-block;margin-top:15px;padding:7px 14px;border-radius:30px;background:rgba(56,189,248,.12);color:var(--accent);font-size:12px}.view-work{margin-top:20px;color:var(--accent);font-weight:bold}.work-link:hover .view-work{transform:translateX(8px)}
-.contact{text-align:center;padding:70px 30px;border-radius:30px;background:linear-gradient(135deg,#1d4ed8,#7c3aed)}.contact h2{font-size:35px}.contact p{color:#e2e8f0;margin:20px 0 30px}footer{text-align:center;padding:30px;color:var(--muted);border-top:1px solid var(--border)}
-.organization{grid-template-columns:repeat(4,1fr)}.org-card{overflow:hidden}.org-card img{width:100%;height:280px;object-fit:cover;display:block}.org-info{padding:20px;text-align:center}.org-info h3{margin-bottom:8px}.org-info p{color:var(--accent);font-size:14px}.center-2{grid-column:span 4;display:flex;justify-content:center;gap:25px}.center-2 .org-card{width:calc(25% - 12px)}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.gallery-item{height:260px;overflow:hidden;border-radius:20px}.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.5s}.gallery-item:hover img{transform:scale(1.08)}
-.work-page{padding-top:150px;min-height:100vh}.work-description{text-align:center;color:var(--muted);max-width:600px;margin:-30px auto 50px;line-height:1.8}.work-gallery{grid-template-columns:repeat(3,1fr)}.work-item,.video-item{overflow:hidden;text-decoration:none;color:var(--text);position:relative}.work-item img,.video-item img{height:350px}.work-item h3,.video-item h3{padding:18px 18px 5px}.work-item p,.video-item p{padding:0 18px 20px;color:var(--accent)}.back-button{color:var(--accent);text-decoration:none;font-weight:bold}.play-button{position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);width:65px;height:65px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(56,189,248,.9);color:#07111f;font-size:25px}
-.reveal{opacity:0;transform:translateY(50px);transition:opacity .8s ease,transform .8s ease}.reveal.active{opacity:1;transform:translateY(0)}@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}@keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-@media(max-width:1000px){.organization{grid-template-columns:repeat(2,1fr)}.center-2{grid-column:span 2}.center-2 .org-card{width:calc(50% - 12px)}.works,.work-gallery{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:768px){section{padding:80px 5%}.hero h1{font-size:45px}.about,.gallery{grid-template-columns:1fr}nav{padding:12px 5%}nav ul{position:absolute;top:70px;right:5%;width:220px;padding:20px;background:var(--panel);border:1px solid var(--border);border-radius:15px;display:none;flex-direction:column;gap:18px}nav ul.active{display:flex}.menu-toggle{display:flex}.section-title{font-size:32px}}@media(max-width:500px){.works,.work-gallery,.stats,.organization{grid-template-columns:1fr}.center-2{grid-column:span 1;flex-direction:column}.center-2 .org-card{width:100%}.hero-logo{width:90px;height:90px}.hero h1{font-size:38px}.work-page{padding-top:120px}}
+/* =========================================================
+   1. RESET & PENGATURAN DASAR
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   2. VARIABEL WARNA & UKURAN
+   → Edit warna utama website di bagian ini
+========================================================= */
+
+:root {
+    --bg: #080d19;
+    --panel: #111a2d;
+
+    --text: #ffffff;
+    --muted: #94a3b8;
+
+    --accent: #38bdf8;
+    --border: rgba(255, 255, 255, 0.08);
+
+    --hero: #080d19;
+
+    --radius: 20px;
+    --transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   3. LIGHT MODE
+========================================================= */
+
+body.light-mode {
+    --bg: #f1f5f9;
+    --panel: #ffffff;
+
+    --text: #0f172a;
+    --muted: #64748b;
+
+    --border: #e2e8f0;
+    --hero: #f8fafc;
+}
+
+
+/* =========================================================
+   4. BODY
+========================================================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: var(--bg);
+    color: var(--text);
+
+    overflow-x: hidden;
+
+    transition: var(--transition);
+}
+
+
+/* =========================================================
+   5. SECTION UMUM
+========================================================= */
+
+section {
+    padding: 100px 8%;
+}
+
+
+/* =========================================================
+   6. NAVBAR
+========================================================= */
+
+nav {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 15px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: color-mix(
+        in srgb,
+        var(--bg) 82%,
+        transparent
+    );
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid var(--border);
+
+    z-index: 999;
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--accent);
+
+    font-size: 24px;
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+}
+
+
+/* Menu Navbar */
+
+nav ul {
+    display: flex;
+
+    gap: 28px;
+
+    list-style: none;
+}
+
+nav ul a {
+    color: var(--text);
+
+    font-size: 15px;
+
+    text-decoration: none;
+
+    transition: var(--transition);
+}
+
+nav ul a:hover {
+    color: var(--accent);
+}
+
+
+/* Bagian kanan navbar */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+/* Tombol Theme & Menu */
+
+.theme-toggle,
+.menu-toggle {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--panel);
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.theme-toggle:hover,
+.menu-toggle:hover {
+    color: var(--accent);
+
+    border-color: var(--accent);
+
+    transform: translateY(-3px);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* =========================================================
+   7. HERO / HALAMAN DEPAN
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #1d4ed8,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            #7c3aed,
+            transparent 35%
+        ),
+        var(--hero);
+}
+
+
+/* Hero Light Mode */
+
+body.light-mode .hero {
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #93c5fd,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            #c4b5fd,
+            transparent 35%
+        ),
+        var(--hero);
+}
+
+
+/* Isi Hero */
+
+.hero-content {
+    max-width: 900px;
+
+    position: relative;
+
+    animation: fadeUp 1.2s ease;
+}
+
+
+/* Logo Hero */
+
+.hero-logo {
+    width: 120px;
+    height: 120px;
+
+    object-fit: contain;
+
+    margin-bottom: 25px;
+
+    animation: logoFloat 4s infinite ease-in-out;
+}
+
+
+/* Judul Hero */
+
+.hero h1 {
+    margin-bottom: 20px;
+
+    font-size: 70px;
+
+    letter-spacing: 2px;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+
+/* Deskripsi Hero */
+
+.hero p {
+    margin-bottom: 35px;
+
+    color: var(--muted);
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   8. BUTTON
+========================================================= */
+
+.btn {
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    background: var(--accent);
+    color: #07111f;
+
+    border-radius: 50px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition: var(--transition);
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(56, 189, 248, 0.4);
+}
+
+
+/* =========================================================
+   9. JUDUL SECTION
+========================================================= */
+
+.section-title {
+    margin-bottom: 50px;
+
+    text-align: center;
+
+    font-size: 40px;
+}
+
+.section-title span {
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   10. ABOUT / TENTANG KELAS
+========================================================= */
+
+.about {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+
+/* Kotak About */
+
+.about-box {
+    padding: 35px;
+
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    transition: 0.4s ease;
+}
+
+.about-box:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.about-box h3 {
+    margin-bottom: 15px;
+
+    color: var(--accent);
+
+    font-size: 23px;
+}
+
+.about-box p {
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   11. STATISTIK KELAS
+========================================================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-top: 30px;
+}
+
+.stat-card {
+    padding: 30px;
+
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    text-align: center;
+
+    transition: 0.4s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.stat-card h2 {
+    color: var(--accent);
+
+    font-size: 38px;
+}
+
+.stat-card p {
+    margin-top: 10px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   12. KARYA / WORKS
+========================================================= */
+
+.works {
+    display: flex;
+    justify-content: center;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 25px;
+}
+
+
+/* Link Karya */
+
+.work-link {
+    display: block;
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+/* Card Karya */
+
+.work-card {
+    overflow: hidden;
+
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    transition: 0.4s ease;
+}
+
+.work-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Gambar Karya */
+
+.work-card img {
+    width: 100%;
+    height: 250px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* Informasi Karya */
+
+.work-info {
+    padding: 22px;
+}
+
+.work-info h3 {
+    margin-bottom: 10px;
+}
+
+.work-info p {
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   13. TAG KARYA
+========================================================= */
+
+.tag {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 7px 14px;
+
+    background: rgba(56, 189, 248, 0.12);
+
+    color: var(--accent);
+
+    border-radius: 30px;
+
+    font-size: 12px;
+}
+
+
+/* Tombol Lihat Karya */
+
+.view-work {
+    margin-top: 20px;
+
+    color: var(--accent);
+
+    font-weight: bold;
+
+    transition: var(--transition);
+}
+
+.work-link:hover .view-work {
+    transform: translateX(8px);
+}
+
+
+/* =========================================================
+   14. ORGANISASI / STRUKTUR KELAS
+========================================================= */
+
+.organization {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+/* Card Organisasi */
+
+.org-card {
+    overflow: hidden;
+
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    transition: 0.4s ease;
+}
+
+.org-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Foto Pengurus */
+
+.org-card img {
+    width: 100%;
+    height: 280px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* Informasi Pengurus */
+
+.org-info {
+    padding: 20px;
+
+    text-align: center;
+}
+
+.org-info h3 {
+    margin-bottom: 8px;
+}
+
+.org-info p {
+    color: var(--accent);
+
+    font-size: 14px;
+}
+
+
+/* Dua Card di Tengah */
+
+.center-2 {
+    grid-column: span 4;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+}
+
+.center-2 .org-card {
+    width: calc(25% - 12px);
+}
+
+
+/* =========================================================
+   15. GALLERY
+========================================================= */
+
+.gallery {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.gallery-item {
+    height: 260px;
+
+    overflow: hidden;
+
+    border-radius: var(--radius);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   16. HALAMAN DETAIL KARYA
+========================================================= */
+
+.work-page {
+    min-height: 100vh;
+
+    padding-top: 150px;
+}
+
+
+/* Deskripsi Halaman Karya */
+
+.work-description {
+    max-width: 600px;
+
+    margin: -30px auto 50px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+
+/* Gallery Karya */
+
+.work-gallery {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* Card Karya Detail */
+
+.work-item,
+.video-item {
+    position: relative;
+
+    overflow: hidden;
+
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    transition: 0.4s ease;
+}
+
+.work-item:hover,
+.video-item:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Gambar Detail */
+
+.work-item img,
+.video-item img {
+    width: 100%;
+    height: 350px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* Judul Detail */
+
+.work-item h3,
+.video-item h3 {
+    padding: 18px 18px 5px;
+}
+
+
+/* Keterangan Detail */
+
+.work-item p,
+.video-item p {
+    padding: 0 18px 20px;
+
+    color: var(--accent);
+}
+
+
+/* Tombol Kembali */
+
+.back-button {
+    color: var(--accent);
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   17. TOMBOL PLAY VIDEO
+========================================================= */
+
+.play-button {
+    position: absolute;
+
+    top: 45%;
+    left: 50%;
+
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translate(-50%, -50%);
+
+    background: rgba(56, 189, 248, 0.9);
+
+    color: #07111f;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+
+    transition: var(--transition);
+}
+
+.video-item:hover .play-button {
+    transform:
+        translate(-50%, -50%)
+        scale(1.1);
+}
+
+
+/* =========================================================
+   18. CONTACT
+========================================================= */
+
+.contact {
+    padding: 70px 30px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1d4ed8,
+            #7c3aed
+        );
+}
+
+.contact h2 {
+    font-size: 35px;
+}
+
+.contact p {
+    margin: 20px 0 30px;
+
+    color: #e2e8f0;
+}
+
+
+/* =========================================================
+   19. FOOTER
+========================================================= */
+
+footer {
+    padding: 30px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    border-top: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   20. SCROLL REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   21. ANIMASI
+========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* =========================================================
+   22. TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    /* Struktur kelas */
+
+    .organization {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .center-2 {
+        grid-column: span 2;
+    }
+
+    .center-2 .org-card {
+        width: calc(50% - 12px);
+    }
+
+
+    /* Karya */
+
+    .works,
+    .work-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* Statistik */
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   23. MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Section */
+
+    section {
+        padding: 80px 5%;
+    }
+
+
+    /* Navbar */
+
+    nav {
+        padding: 12px 5%;
+    }
+
+    nav ul {
+        position: absolute;
+
+        top: 70px;
+        right: 5%;
+
+        width: 220px;
+
+        padding: 20px;
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 18px;
+
+        background: var(--panel);
+
+        border: 1px solid var(--border);
+
+        border-radius: 15px;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+
+    /* Hero */
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+
+    /* About */
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Gallery */
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Judul */
+
+    .section-title {
+        font-size: 32px;
+    }
+}
+
+
+/* =========================================================
+   24. HP KECIL
+========================================================= */
+
+@media (max-width: 500px) {
+
+    /* Semua grid menjadi 1 kolom */
+
+    .works,
+    .work-gallery,
+    .stats,
+    .organization {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Struktur 2 card */
+
+    .center-2 {
+        grid-column: span 1;
+
+        flex-direction: column;
+    }
+
+    .center-2 .org-card {
+        width: 100%;
+    }
+
+
+    /* Hero */
+
+    .hero-logo {
+        width: 90px;
+        height: 90px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+
+    /* Halaman karya */
+
+    .work-page {
+        padding-top: 120px;
+    }
+
+
+    /* Foto karya */
+
+    .work-item img,
+    .video-item img {
+        height: 280px;
+    }
+}
 
 /* =========================
    STUDENT GALLERY
