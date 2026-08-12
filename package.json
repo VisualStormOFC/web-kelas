@@ -1,0 +1,24 @@
+{
+  "name": "web-kelas-xii-dkv-3",
+  "version": "1.0.0",
+  "description": "XII DKV 3 Official Class Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 3000",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VisualStormOFC/web-kelas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VisualStormOFC/web-kelas/issues"
+  },
+  "homepage": "https://github.com/VisualStormOFC/web-kelas#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
