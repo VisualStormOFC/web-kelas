@@ -694,29 +694,25 @@ body.light-mode .hero {
 ========================================================= */
 
 .gallery {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
 }
 
 .gallery-item {
     height: 260px;
-
-    overflow: hidden;
-
+    width: calc((100% - 40px) / 3);
+    overflow: visible;
     border-radius: var(--radius);
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
-
     display: block;
-
     object-fit: cover;
-
+    border-radius: 20px;
     transition: 0.5s ease;
 }
 
