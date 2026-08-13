@@ -210,31 +210,41 @@ nav ul a:hover {
 
 .hero {
     min-height: 100vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-
-    overflow: hidden;
-
+    padding-top: 140px;
+    display: grid;
+    place-items: center;
     text-align: center;
 
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            #1d4ed8,
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 80% 80%,
-            #7c3aed,
-            transparent 35%
-        ),
-        var(--hero);
+    background-image:
+    linear-gradient(
+        rgba(0,0,0,0.70),
+        rgba(0,0,0,0.70)
+    ),
+    url("../images/background1.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
 }
 
+@media (max-width: 700px) {
+
+    .hero {
+        min-height: 100svh;
+
+        background-image:
+            linear-gradient(
+                rgba(0,0,0,0.70),
+                rgba(0,0,0,0.70)
+            ),
+            url("../images/background.png");
+
+        background-size: cover;
+        background-position: center;
+    }
+
+}
 
 /* Hero Light Mode */
 
