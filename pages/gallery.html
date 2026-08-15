@@ -129,6 +129,7 @@
             transform: rotate(90deg);
         }
 
+        
 
         /* =================================
            PREVIOUS & NEXT
@@ -211,6 +212,40 @@
 
 
         /* =================================
+           DOWNLOAD BUTTON
+        ================================= */
+
+        .gallery-download {
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+
+            padding: 12px 20px;
+
+            border: none;
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, .12);
+
+            color: white;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            z-index: 10;
+
+            transition: .3s;
+        }
+
+        .gallery-download:hover {
+            background: #38bdf8;
+            transform: translateY(-3px) scale(1.08);
+        }
+
+
+        /* =================================
            MOBILE
         ================================= */
 
@@ -269,6 +304,15 @@
 
                 font-size: 28px;
 
+            }
+
+            .gallery-download {
+                right: 15px;
+                bottom: 20px;
+
+                padding: 10px 15px;
+
+                font-size: 13px;
             }
 
         }
@@ -465,6 +509,16 @@
             ›
         </button>
 
+        <!-- DOWNLOAD -->
+        <button
+            class="gallery-download"
+            id="galleryDownload"
+            aria-label="Download foto"
+            title="Download foto"
+        >
+            Download Foto
+        </button>
+
 
 
         <!-- COUNTER -->
@@ -511,6 +565,10 @@
 
         const nextButton =
             document.getElementById("galleryNext");
+
+
+        const downloadButton =
+            document.getElementById("galleryDownload");
 
 
         const counter =
@@ -631,6 +689,63 @@
 
 
         /* =================================
+           DOWNLOAD FOTO
+        ================================= */
+
+        async function downloadPhoto() {
+
+            const image = galleryItems[currentIndex];
+
+            const fileName =
+                "XII-DKV-3-Memories-" +
+                (currentIndex + 1) +
+                ".jpg";
+
+            try {
+
+                const response = await fetch(image.src);
+
+                if (!response.ok) {
+                    throw new Error("Gagal mengambil foto.");
+                }
+
+                const blob = await response.blob();
+
+                const blobUrl =
+                    URL.createObjectURL(blob);
+
+                const link =
+                    document.createElement("a");
+
+                link.href = blobUrl;
+                link.download = fileName;
+
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                URL.revokeObjectURL(blobUrl);
+
+            } catch (error) {
+
+                /* Fallback */
+                const link =
+                    document.createElement("a");
+
+                link.href = image.src;
+                link.download = fileName;
+
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+            }
+
+        }
+
+
+
+        /* =================================
            CLOSE
         ================================= */
 
@@ -706,6 +821,21 @@
                 event.stopPropagation();
 
                 previousPhoto();
+
+            }
+        );
+
+        /* =================================
+           TOMBOL DOWNLOAD
+        ================================= */
+
+        downloadButton.addEventListener(
+            "click",
+            (event) => {
+
+                event.stopPropagation();
+
+                downloadPhoto();
 
             }
         );
