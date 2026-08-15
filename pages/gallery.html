@@ -44,6 +44,9 @@
             transform: scale(1.07);
         }
 
+        .gallery-item:last-child {
+            grid-column: 2;
+        }
 
         /* =================================
            FULLSCREEN VIEWER
@@ -218,6 +221,11 @@
                 gap: 12px;
             }
 
+            .gallery-item:last-child {
+                grid-column: 1 / -1;
+                width: calc(50% - 6px);
+                justify-self: center;
+            }
 
             .gallery-viewer img {
 
